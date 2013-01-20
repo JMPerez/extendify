@@ -66,4 +66,4 @@ On Google Chrome, open the [Extensions page](chrome://chrome/extensions/) and en
 Due to calls limit to the Spotify Metadata Search Service you might receive errors 503 (Service Not Available) when retrieving information about certain items. The extension will try to fetch again the content several times for some seconds.
 
 ## About the authors
-This extension was built during the Music Hack Day 2012 in Stockholm by [@jmperezperez](https://twitter.com/jmperezperez) and [@aandelkovic](https://twitter.com/aandelkovic).
+This extension was built during the Music Hack Day 2013 in Stockholm by [@jmperezperez](https://twitter.com/jmperezperez) and [@aandelkovic](https://twitter.com/aandelkovic).
