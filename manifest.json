@@ -1,0 +1,27 @@
+{
+  "name": "Extendify",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "It appends a Spotify Play Button to Twitter, Wikipedia, Google search results and many more!",
+  "permissions": ["tabs"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js" : [
+        "js/jquery.min.js",
+        "js/search.js",
+        "js/lib.js",
+        "js/providers/allmusic.js",
+        "js/providers/amazon.js",
+        "js/providers/ebay.js",
+        "js/providers/gmail.js",
+        "js/providers/google.js",
+        "js/providers/piratebay.js",
+        "js/providers/twitter.js",
+        "js/providers/wikipedia.js",
+        "js/providers/youtube.js",
+        "js/background.js"
+        ]
+    }
+  ]
+}
