@@ -15,9 +15,9 @@ So far it supports the following websites. Notes about installation can be found
 ### All Music
 It woeks with any track, album or artist page.
 
-* [Track page (i.e. Someone Like You by Adele)](http://www.allmusic.com/song/someone-like-you-mt0040297377])
-* [Album page (i.e. 21 by Adele)](http://www.allmusic.com/album/21-mw0002080092])
-* [Artist page (i.e. Adele)](http://www.allmusic.com/artist/adele-mn0000503460])
+* [Track page (i.e. Someone Like You by Adele)](http://www.allmusic.com/song/someone-like-you-mt0042770499)
+* [Album page (i.e. 21 by Adele)](http://www.allmusic.com/album/21-mw0002080092)
+* [Artist page (i.e. Adele)](http://www.allmusic.com/artist/adele-mn0000503460)
 
 ### Amazon
 

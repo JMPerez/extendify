@@ -28,7 +28,7 @@ SP.Providers.Amazon = function() {
     if (track) {
       callbackFound(track + " - " + artist);
       SP.Search.searchTrack(track + " - " + artist, function(href) {
-        $('<iframe style="float:right" src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
+        $('<iframe style="padding:1em" src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
         .prependTo('.productImageGrid');
       }, function() {
         clallbackNotFound();

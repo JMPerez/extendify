@@ -17,7 +17,7 @@ SP.Providers.Youtube = function() {
     if (title) {
       SP.Search.searchTrack(title, function(href) {
         callbackFound(title);
-        $('<iframe style="float:right;padding:1em" src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
+        $('<iframe style="padding:1em" src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
         .prependTo('#watch7-main');
       }, function() {
         clallbackNotFound();
