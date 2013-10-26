@@ -1,4 +1,4 @@
-# Extendify - A Google Chrome Extension to append a Spotify Play Button while you browse
+# A Google Chrome Extension that appends a Spotify Play Button to music sites
 
 This is a Google Chrome Extension that appends a Spotify Play Button to the website you are browsing if it detects references to tracks, albums or artists.
 
@@ -21,7 +21,8 @@ It woeks with any track, album or artist page.
 
 ### Amazon
 
-* [Album page (i.e. Greatest Hits Volume 1 by Mando Diao)](http://www.amazon.co.uk/Greatest-Hits-Volume-1/dp/B006KI3BN4/ref=sr_1_6?ie=UTF8&qid=1358676931&sr=8-6)
+* [Album page (i.e. B'Day Deluxe Edition by Beyoncé)](http://www.amazon.co.uk/BDay-Deluxe-Edition-Beyonce/dp/B002ZVG86C/)
+* [Track page (i.e. Single Ladies (Put A Ring On It) by Beyoncé)](http://www.amazon.co.uk/Single-Ladies-Put-Ring-On/dp/B002SPA21M/)
 
 ### Ebay
 Items under [Music category](http://www.ebay.com/hcp/entertainment/music).
@@ -63,7 +64,7 @@ Videos of tracks
 On Google Chrome, open the [Extensions page](chrome://chrome/extensions/) and enable Developer Mode. Then, click on "Load upacked extension..." and select the folder where you have deployed the source code.
 
 ## Known issues
-Due to calls limit to the Spotify Metadata Search Service you might receive errors 503 (Service Not Available) when retrieving information about certain items. The extension will try to fetch again the content several times for some seconds.
+The extension relies heavily on the DOM structure of the supported sites. When these change, the extension could stop detecting the placeholders for the key information (album name, track name and artist name).
 
 ## About the authors
 This extension was built during the Music Hack Day 2013 in Stockholm by [@jmperezperez](https://twitter.com/jmperezperez) and [@aandelkovic](https://twitter.com/aandelkovic).

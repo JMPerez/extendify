@@ -1,6 +1,6 @@
 {
   "name": "Extendify",
-  "version": "0.1",
+  "version": "0.1.1",
   "manifest_version": 2,
   "description": "It appends a Spotify Play Button to Twitter, Wikipedia, Google search results and many more!",
   "permissions": ["tabs"],
