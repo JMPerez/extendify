@@ -11,8 +11,8 @@ SP.Providers.AllMusic = function() {
     if (albumArtist && albumTitle) {
         callbackFound(albumTitle + " - " + albumArtist);
         SP.Search.searchAlbum(albumTitle + " - " + albumArtist, function(href) {
-          $('<iframe style="margin: 0 auto;display: block;padding: 1em;" src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
-          .prependTo('#disco-browser');
+          $('<iframe style="padding-bottom: 1em" src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
+          .prependTo('.content');
         }, function() {
           clallbackNotFound();
         });
@@ -23,8 +23,8 @@ SP.Providers.AllMusic = function() {
     if (songArtist && songTitle) {
       callbackFound(songTitle + " - " + songArtist);
       SP.Search.searchAlbum(songTitle + " - " + songArtist, function(href) {
-        $('<iframe src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
-        .prependTo('#main');
+        $('<iframe style="padding-bottom: 1em" src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
+        .prependTo('.content');
       }, function() {
         clallbackNotFound();
       });
@@ -38,8 +38,8 @@ SP.Providers.AllMusic = function() {
           }).done(function(data) {
             if (data.artist.albums.length > 0) {
               data.artist.albums.slice(0, 1).forEach(function(a) {
-                $('<iframe style="margin: 0 auto;display: block;padding: 1em;" src="https://embed.spotify.com/?uri=' + a.album.href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
-                  .prependTo('.details');
+                $('<iframe style="padding-bottom: 1em" src="https://embed.spotify.com/?uri=' + a.album.href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
+                  .prependTo('.content');
               });
             } else {
               clallbackNotFound();
