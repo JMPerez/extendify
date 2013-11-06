@@ -61,7 +61,7 @@ Videos of tracks
 * [Video (i.e. Call Me Maybe by Carly Rae Jepsen)](http://www.youtube.com/watch?v=fWNaR-rxAic).
 
 ## Installation
-On Google Chrome, open the [Extensions page](chrome://chrome/extensions/) and enable Developer Mode. Then, click on "Load upacked extension..." and select the folder where you have deployed the source code.
+On Google Chrome, open the _Extensions page_ (chrome://chrome/extensions/) and enable Developer Mode. Then, click on "Load unpacked extension..." and select the folder where you have deployed the source code.
 
 ## Known issues
 The extension relies heavily on the DOM structure of the supported sites. When these change, the extension could stop detecting the placeholders for the key information (album name, track name and artist name).
