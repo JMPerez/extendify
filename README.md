@@ -4,13 +4,15 @@ This is a Google Chrome Extension that appends a [Spotify Play Button](https://d
 
 The extension only tries to fetch a Spotify Play Button when it makes sure the displayed content refers to a potential music item, thus avoiding making a large amount of requests, keeping a fast browsing experience. The SPB control is injected in the page in a suitable area, depending on the website.
 
+You can install [Extendify from the Chrome Web Store](https://chrome.google.com/webstore/detail/extendify/jjajfginmjgdpblfanoimdanifdmcokd?authuser=1) to give it a try.
+
 This is a screenshot of the extension in action:
 
 ![Sample of Spotify Play Button Chrome Extension](https://github.com/JMPerez/extendify/raw/master/twitter-sample.png)
 
 ## Supported sites
 
-So far it supports the following websites. Notes about installation can be found below, and it is a good idea to install the extension and click on the links below to see how the extension works.
+So far it supports the following websites:
 
 ### All Music
 It woeks with any track, album or artist page.
