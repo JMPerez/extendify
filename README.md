@@ -13,7 +13,7 @@ This is a screenshot of the extension in action:
 So far it supports the following websites. Notes about installation can be found below, and it is a good idea to install the extension and click on the links below to see how the extension works.
 
 ### All Music
-It woeks with any track, album or artist page.
+It works with any track, album or artist page.
 
 * [Track page (i.e. Someone Like You by Adele)](http://www.allmusic.com/song/someone-like-you-mt0042770499)
 * [Album page (i.e. 21 by Adele)](http://www.allmusic.com/album/21-mw0002080092)
