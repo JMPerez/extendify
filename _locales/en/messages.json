@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Extendify",
+    "description": "The title of the application, displayed in the web store."
+  },
+  "appDesc": {
+    "message": "Extendify shows a Spotify Play Button when you browse pages about artists and tracks on Twitter, Wikipedia, Youtube and many more.", 
+    "description": "The description of the application, displayed in the web store."
+  }
+}
