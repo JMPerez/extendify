@@ -1,9 +1,10 @@
 {
-  "name": "Extendify",
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDesc__",
   "short_name": "Extendify",
+  "default_locale": "en",
   "version": "0.1.4",
   "manifest_version": 2,
-  "description": "Extendify shows a Spotify Play Button when you browse pages about artists and tracks on Twitter, Wikipedia, Youtube and many more.",
   "permissions": ["tabs"],
   "content_scripts": [
     {
