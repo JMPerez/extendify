@@ -11,7 +11,7 @@ SP.Providers.Twitter = function() {
         url = url.split("/").join(":");
         if (SP.Lib.isSupportedUri(url)) {
           $('<iframe src="https://embed.spotify.com/?uri=' + url + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
-            .prependTo($(a).closest(".content").find(".stream-item-footer"));
+            .insertAfter($(a).closest(".tweet-text"));
           }
       });
     };
@@ -28,7 +28,7 @@ SP.Providers.Twitter = function() {
 
             if (SP.Lib.isSupportedUri(url)) {
               $('<iframe src="https://embed.spotify.com/?uri=' + url + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
-                .prependTo($(a).closest(".content").find(".stream-item-footer"));
+                .insertAfter($(a).closest(".tweet-text"));
             }
           }
         });
