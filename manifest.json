@@ -3,7 +3,7 @@
   "description": "__MSG_appDesc__",
   "short_name": "Extendify",
   "default_locale": "en",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "manifest_version": 2,
   "permissions": ["tabs"],
   "content_scripts": [
@@ -19,7 +19,6 @@
         "js/providers/gmail.js",
         "js/providers/google.js",
         "js/providers/piratebay.js",
-        "js/providers/twitter.js",
         "js/providers/wikipedia.js",
         "js/providers/youtube.js",
         "js/background.js"

@@ -6,7 +6,7 @@ SP.Providers.Youtube = function() {
 
   function detect(callbackFound, clallbackNotFound) {
     // see if this a music page
-    var category = $("#eow-category").text();
+    var category = $(".watch-meta-item .title").text();
     if (!category || category.toLowerCase() != "music") {
       clallbackNotFound();
     }

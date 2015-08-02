@@ -26,32 +26,39 @@ SP.Providers.Wikipedia = function() {
     if (track) {
       track = track.substr(1, track.length-2);
       SP.Search.searchTrack(track, function(href) {
-         $('<iframe style="float:right" src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
+         $('<iframe style="float:right" src="https://embed.spotify.com/?uri=' + href + '" width="271" height="80" frameborder="0" allowtransparency="true"></iframe>')
           .prependTo('#bodyContent');
       }, function() {
         callbackNotFound();
       });
     } else {
-      var $box = $('.infobox.vevent');
+      var $box = $('.infobox.vevent').length ? $('.infobox.vevent') : $('.infobox.vcard');
 
       if ($box) {
         // look for infoboxes
         getRawWikiContent(function(data) {
-          if (data.indexOf('Infobox album' != -1)) {
+          if (data.indexOf('Infobox musical artist') != -1) {
+            var artist = $box.find('th').eq(0).text();
+            SP.Search.searchArtist(artist, function(href) {
+              callbackFound(artist); //todo: add artist
+               $('<iframe style="float:right" src="https://embed.spotify.com/?uri=' + href + '" width="271" height="80" frameborder="0" allowtransparency="true"></iframe>')
+                .prependTo('#bodyContent');
+            }, function() {callbackNotFound();});
+          } else if (data.indexOf('Infobox album') != -1) {
             // todo: read name and artist
             var albumName = $box.find('th').eq(0).text();
             var artistName = $box.find(".contributor").text();
             SP.Search.searchAlbum(albumName + " - " + artistName, function(href) {
               callbackFound(albumName + " - " + artistName); //todo: add artist
-               $('<iframe style="float:right" src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
+               $('<iframe style="float:right" src="https://embed.spotify.com/?uri=' + href + '" width="271" height="80" frameborder="0" allowtransparency="true"></iframe>')
                 .prependTo('#bodyContent');
             }, function() {callbackNotFound();});
-          } else if (data.indexOf('Infobox song' != -1)) {
+          } else if (data.indexOf('Infobox song') != -1 || data.indexOf('Infobox single') != -1) {
             // todo: read name, artist, album
             var track = $box.find('th').eq(0).text();
             SP.Search.searchTrack(track, function(href) {
               callbackFound(track); //todo: add artist
-               $('<iframe style="float:right" src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
+               $('<iframe style="float:right" src="https://embed.spotify.com/?uri=' + href + '" width="271" height="80" frameborder="0" allowtransparency="true"></iframe>')
                 .prependTo('#bodyContent');
             }, function() {callbackNotFound();});
           }

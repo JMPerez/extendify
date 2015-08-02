@@ -6,7 +6,7 @@ SP.Providers.PirateBay = function() {
 
   function detect(callbackFound, clallbackNotFound) {
     if ($("#details").text().indexOf("Audio > Music")) {
-      var title = $("#title").text().trim();
+      var title = $("#title")[0].firstChild.nodeValue.trim();
       callbackFound(title);
       SP.Search.searchAlbum(title, function(href) {
         $('<iframe src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')

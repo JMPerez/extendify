@@ -11,14 +11,14 @@ SP.Providers.Amazon = function() {
       callbackNotFound();
     }
 
-    var albumIndicator = $("#dmusic_digital_buy_button_row .a-text-bold");
-    var isAlbum = (albumIndicator.length && albumIndicator.eq(0).text().trim() === "Buy MP3 Album");
+    var albumIndicator = $("#dmusic_buy_box_group .DigitalBuyButtonBuyBoxSection a");
+    var isAlbum = (albumIndicator.length && albumIndicator.eq(0).text().trim().startsWith("Buy MP3 Album"));
 
     // track name
-    var title = $('#handleBuy h1').text().trim();
+    var title = $('#title_feature_div h1').text().trim();
 
     // artist name
-    var artist = $('#artist_row').text().trim();
+    var artist = $('#ArtistLinkSection a').text().trim();
 
     // find the title
     if (title) {
@@ -26,14 +26,14 @@ SP.Providers.Amazon = function() {
       if (isAlbum) {
         SP.Search.searchAlbum(title + " - " + artist, function(href) {
           $('<iframe style="padding:1em; box-sizing: content-box;" src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
-          .prependTo('.productImageGrid');
+          .appendTo('#coverArt_feature_div');
         }, function() {
           callbackNotFound();
         });
       } else {
         SP.Search.searchTrack(title + " - " + artist, function(href) {
           $('<iframe style="padding:1em; box-sizing: content-box;" src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
-          .prependTo('.productImageGrid');
+          .appendTo('#coverArt_feature_div');
         }, function() {
           callbackNotFound();
         });

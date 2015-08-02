@@ -8,7 +8,7 @@ You can install [Extendify from the Chrome Web Store](https://chrome.google.com/
 
 This is a screenshot of the extension in action:
 
-![Sample of Spotify Play Button Chrome Extension](https://github.com/JMPerez/extendify/raw/master/twitter-sample.png)
+![Sample of Spotify Play Button Chrome Extension](https://github.com/JMPerez/extendify/raw/master/wikipedia-sample.png)
 
 ## Supported sites
 
@@ -32,7 +32,7 @@ Items under [Music category](http://www.ebay.com/hcp/entertainment/music).
 * [Album page (i.e. My Love Is Your Love by Whitney Houston)](http://www.ebay.com/ctg/My-Love-Your-Love-Whitney-Houston-CD-Jan-1998-2-Discs-Arista-/3190079?fvcs=1226&_fcls=1&_tab=2&_trksid=m185&_trkparms=algo%3DPP.GENRES%26its%3DK%26itu%3DUCK%252BUA%26otn%3D16%26ps%3D63%26clkid%3D5005620363478891640&_qi=RTM1002374)
 
 ### Gmail
-It works with any link pointing to http://open.spotify.com that belongs to a track, album or playlist
+It works with any link pointing to https://open.spotify.com or https://play.spotify.com that belongs to a track, album or playlist
 
 ### Google
 It works with search results for artist, album or tracks.
@@ -43,13 +43,7 @@ It works with search results for artist, album or tracks.
 ### Pirate Bay
 It supports album download pages:
 
-* [Album page (i.e. 21 by Adele)](http://thepiratebay.se/torrent/7931368/Adele_-_21])
-
-### Twitter
-
-Any tweet containing a link to http://open.spotify.com or http://spoti.fi (Spotify's shortened URLs for shared items).
-
-* [Twitter Search Results for "Spotify"](https://twitter.com/search?q=spotify).
+* [Album page (i.e. 21 by Adele)](https://thepiratebay.la/torrent/6590427/Adele_-_21)
 
 ### Wikipedia
 Articles on Wikipedia in English about albums or tracks.
