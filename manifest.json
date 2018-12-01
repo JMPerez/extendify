@@ -3,13 +3,13 @@
   "description": "__MSG_appDesc__",
   "short_name": "Extendify",
   "default_locale": "en",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "manifest_version": 2,
   "permissions": ["tabs"],
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "js" : [
+      "js": [
         "js/jquery.min.js",
         "js/search.js",
         "js/lib.js",
@@ -22,7 +22,7 @@
         "js/providers/wikipedia.js",
         "js/providers/youtube.js",
         "js/background.js"
-        ]
+      ]
     }
   ],
   "icons": {

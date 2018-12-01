@@ -6,7 +6,10 @@ SP.Providers.Ebay = function() {
   function detect(callbackFound, callbackNotFound) {
     // see if this a music page
     var productDescription = $('.pds-l').text();
-    if (!productDescription || productDescription.indexOf('Album Features') == -1) {
+    if (
+      !productDescription ||
+      productDescription.indexOf('Album Features') == -1
+    ) {
       callbackNotFound();
       return;
     }
@@ -25,12 +28,19 @@ SP.Providers.Ebay = function() {
 
     if (track) {
       callbackFound(track + ' - ' + artist);
-      SP.Search.searchTrack(track + ' - ' + artist, function(href) {
-        $('<iframe style="margin: 0 auto;display: block; padding: 1em;" src="https://embed.spotify.com/?uri=' + href + '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>')
-        .prependTo('.iv.iv-wrpr');
-      }, function() {
-        callbackNotFound();
-      });
+      SP.Search.searchTrack(
+        track + ' - ' + artist,
+        function(href) {
+          $(
+            '<iframe style="margin: 0 auto;display: block; padding: 1em;" src="https://open.spotify.com/embed/?uri=' +
+              href +
+              '" width="250" height="80" frameborder="0" allowtransparency="true"></iframe>'
+          ).prependTo('.iv.iv-wrpr');
+        },
+        function() {
+          callbackNotFound();
+        }
+      );
     } else {
       callbackNotFound();
     }
@@ -39,6 +49,8 @@ SP.Providers.Ebay = function() {
   return {
     supports: supports,
     detect: detect,
-    toString: function() {return 'Ebay';}
+    toString: function() {
+      return 'Ebay';
+    }
   };
 };

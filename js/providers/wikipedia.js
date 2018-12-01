@@ -1,66 +1,107 @@
 SP.Providers = SP.Providers || {};
-SP.Providers.Wikipedia = function() {
+SP.Providers.Wikipedia = () => {
   function supports(url) {
-    return url.indexOf("en.wikipedia.org") != -1;
+    return url.includes('en.wikipedia.org');
   }
 
   function getRawWikiContent(callbackSuccess, callbackError) {
     $.ajax({
-      'url': window.location.href + '?&action=raw' // http://www.hpl.hp.com/techreports/2007/HPL-2007-182.pdf
-    }).done(function(data) {
-      callbackSuccess(data);
-    }).error(function(data) {
-      callbackError();
-    });
+      url: `${window.location.href}?&action=raw` // http://www.hpl.hp.com/techreports/2007/HPL-2007-182.pdf
+    })
+      .done(data => {
+        callbackSuccess(data);
+      })
+      .error(data => {
+        callbackError();
+      });
   }
 
   function detect(callbackFound, callbackNotFound) {
+    const $tracks = $('.haudio .fn');
 
-    var $tracks = $('.haudio .fn');
-
-    var track;
+    let track;
     if ($tracks.length === 1) {
       track = $('.haudio .fn').text();
     }
 
     if (track) {
-      track = track.substr(1, track.length-2);
-      SP.Search.searchTrack(track, function(href) {
-         $('<iframe style="float:right" src="https://embed.spotify.com/?uri=' + href + '" width="271" height="80" frameborder="0" allowtransparency="true"></iframe>')
-          .prependTo('#bodyContent');
-      }, function() {
-        callbackNotFound();
-      });
+      track = track.substr(1, track.length - 2);
+      SP.Search.searchTrack(
+        track,
+        href => {
+          $(
+            `<iframe style="float:right" src="https://open.spotify.com/embed/?uri=${href}" width="271" height="80" frameborder="0" allowtransparency="true"></iframe>`
+          ).prependTo('#bodyContent');
+        },
+        () => {
+          callbackNotFound();
+        }
+      );
     } else {
-      var $box = $('.infobox.vevent').length ? $('.infobox.vevent') : $('.infobox.vcard');
+      const $box = $('.infobox.vevent').length
+        ? $('.infobox.vevent')
+        : $('.infobox.vcard');
 
       if ($box) {
         // look for infoboxes
-        getRawWikiContent(function(data) {
-          if (data.indexOf('Infobox musical artist') != -1) {
-            var artist = $box.find('th').eq(0).text();
-            SP.Search.searchArtist(artist, function(href) {
-              callbackFound(artist); //todo: add artist
-               $('<iframe style="float:right" src="https://embed.spotify.com/?uri=' + href + '" width="271" height="80" frameborder="0" allowtransparency="true"></iframe>')
-                .prependTo('#bodyContent');
-            }, function() {callbackNotFound();});
-          } else if (data.indexOf('Infobox album') != -1) {
+        getRawWikiContent(data => {
+          if (data.includes('Infobox musical artist')) {
+            const artist = $box
+              .find('th')
+              .eq(0)
+              .text();
+            SP.Search.searchArtist(
+              artist,
+              href => {
+                callbackFound(artist); //todo: add artist
+                $(
+                  `<iframe style="float:right" src="https://open.spotify.com/embed/?uri=${href}" width="271" height="80" frameborder="0" allowtransparency="true"></iframe>`
+                ).prependTo('#bodyContent');
+              },
+              () => {
+                callbackNotFound();
+              }
+            );
+          } else if (data.includes('Infobox album')) {
             // todo: read name and artist
-            var albumName = $box.find('th').eq(0).text();
-            var artistName = $box.find(".contributor").text();
-            SP.Search.searchAlbum(albumName + " - " + artistName, function(href) {
-              callbackFound(albumName + " - " + artistName); //todo: add artist
-               $('<iframe style="float:right" src="https://embed.spotify.com/?uri=' + href + '" width="271" height="80" frameborder="0" allowtransparency="true"></iframe>')
-                .prependTo('#bodyContent');
-            }, function() {callbackNotFound();});
-          } else if (data.indexOf('Infobox song') != -1 || data.indexOf('Infobox single') != -1) {
+            const albumName = $box
+              .find('th')
+              .eq(0)
+              .text();
+            const artistName = $box.find('.contributor').text();
+            SP.Search.searchAlbum(
+              `${albumName} - ${artistName}`,
+              href => {
+                callbackFound(`${albumName} - ${artistName}`); //todo: add artist
+                $(
+                  `<iframe style="float:right" src="https://open.spotify.com/embed/?uri=${href}" width="271" height="80" frameborder="0" allowtransparency="true"></iframe>`
+                ).prependTo('#bodyContent');
+              },
+              () => {
+                callbackNotFound();
+              }
+            );
+          } else if (
+            data.includes('Infobox song') ||
+            data.includes('Infobox single')
+          ) {
             // todo: read name, artist, album
-            var track = $box.find('th').eq(0).text();
-            SP.Search.searchTrack(track, function(href) {
-              callbackFound(track); //todo: add artist
-               $('<iframe style="float:right" src="https://embed.spotify.com/?uri=' + href + '" width="271" height="80" frameborder="0" allowtransparency="true"></iframe>')
-                .prependTo('#bodyContent');
-            }, function() {callbackNotFound();});
+            const track = $box
+              .find('th')
+              .eq(0)
+              .text();
+            SP.Search.searchTrack(
+              track,
+              href => {
+                callbackFound(track); //todo: add artist
+                $(
+                  `<iframe style="float:right" src="https://open.spotify.com/embed/?uri=${href}" width="271" height="80" frameborder="0" allowtransparency="true"></iframe>`
+                ).prependTo('#bodyContent');
+              },
+              () => {
+                callbackNotFound();
+              }
+            );
           }
         });
       } else {
@@ -70,8 +111,10 @@ SP.Providers.Wikipedia = function() {
   }
 
   return {
-    supports:supports,
-    detect:detect,
-    toString: function() {return "Wikipedia";}
+    supports,
+    detect,
+    toString() {
+      return 'Wikipedia';
+    }
   };
 };
